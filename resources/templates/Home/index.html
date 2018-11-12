@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform" xmlns:text="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>CRM登录页面</title>
+    <link rel="icon" href="/blog/favicon.ico"/>
+</head>
+<style type="text/css">
+    .body{
+        height: 300px;
+        width: 400px;
+        border-bottom: antiquewhite;
+        -webkit-box-shadow: #666 0px 0px 10px;
+        -moz-box-shadow: #666 0px 0px 10px;
+        box-shadow: #666 0px 0px 10px;
+        position:fixed ;
+        margin-top: 10%;
+        margin-left: 50%;
+        left: -200px;
+    }
+
+    .top{
+        position: absolute;
+        width: 100%;
+        height: 15%;
+    }
+    .bottom{
+        position: absolute;
+        margin-top: 15%;
+        height: 80%;
+        width: 100%;
+    }
+    .form-group{
+        padding: 15px;
+        width: 100%;
+        height: 50px;
+        position: center;
+        margin: 5px;
+    }
+    .form-control{
+        border: 0px;
+        font-size: 20px;
+        text-shadow: #666666;
+        width: 90%;
+        height: 40px;
+    }
+    .panel-title{
+        font-size: 16px;
+        margin-top: 8px;
+        margin-left: 10px;
+        position: fixed;
+
+    }
+    .loginButton{
+        color: #03a9f4;
+        font-size: 16px;
+        border: none;
+        background: white;
+        width: 200px;
+        text-align: center;
+        onmouseover: grey;
+
+    }
+</style>
+<body>
+<div class="body">
+
+        <div class="top" style="background: #9FA8DA">
+            <span class="panel-title">CRM系统登录</span>
+        </div>
+        <div class="bottom">
+                        <!--<c:if test="${not empty message}">-->
+                            <!--<div class="alert ${message.state}">-->
+                                <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span-->
+                                        <!--aria-hidden="true">&times;</span></button>-->
+                                <!--${message.message}-->
+                            <!--</div>-->
+                        <!--</c:if>-->
+                        <form action="/login" method="post">
+                                <div>
+                                    <span th:text="${msg}"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" value="root" placeholder="账号" name="username" type="text" id="username" autofocus="autofocus"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="密码" name="password" type="password" id="password" value="root"/>
+                                    <br/>
+                                    <label>验证码:
+                                        <input name="kaptcha" type="text" id="kaptcha" maxlength="4" class="chknumber_input" />
+                                    </label>
+                                </div>
+
+                                <div >
+
+                                <br />
+                                <img src="/kaptcha" id="kaptchaImage"  style="margin-bottom: -3px"/>
+                                <a href="" onclick="changeCode()">看不清?换一张</a>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                         <input type="checkbox"> 记住用户名</input>
+                                    </label>
+                                    <button class="loginButton"  type="submit" >进入系统</button>
+                                </div>
+
+                        </form>
+        </div>
+
+
+
+
+</div>
+
+
+</body>
+<script type="text/javascript">
+    function changeCode() {
+        $('#kaptchaImage').hide().attr('src', '/kaptcha?' + Math.floor(Math.random()*100) ).fadeIn();
+        event.cancelBubble=true;
+    }
+
+
+
+</script>
+</html>

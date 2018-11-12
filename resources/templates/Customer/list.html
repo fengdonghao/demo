@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+
+    .index1{
+        text-align: center;
+        height: 20px;
+        width: 5%;
+    }
+    .index2{
+        text-align: center;
+        height: 20px;
+        width: 20%;
+    }
+    .index3{
+        height: 20px;
+        text-align: center;
+        width: 15%;
+    }
+    .text{
+        text-align: center;
+        font-size: 15px;
+    }
+    .href1{
+        font-size: 16px;
+        text-underline: none;
+        text-decoration: none;
+        float: right;
+        color: white;
+    }
+    .href2{
+        font-size: 16px;
+        text-underline: none;
+        text-decoration: none;
+        text-align: center;
+        color: #03a9f4;
+    }
+    .one{
+        background-color: #03a9f4;
+        width: 100%;
+        height: 20px;
+    }
+
+    .total{
+        font-size: 16px;
+        float: left;
+    }
+</style>
+<body>
+
+<div class="divA">
+    <div class="one">
+        <span class="total">客户信息管理</span>
+        <a  class="href1" href="/custAdd" >添加客户</a>
+    </div>
+    <div class="two">
+        <table border="0px">
+            <thead>
+            <tr>
+                <th class="index1">ID</th>
+                <th class="index2">客户名</th>
+                <th class="index1">负责人</th>
+                <th class="index2">公司地址</th>
+                <th class="index3">Emily</th>
+                <th class="index3">QQ</th>
+                <th class="index3">添加时间</th>
+            </tr>
+            <tr  class="text" th:each="user:${userList}">
+                <td  th:text="${user.id}"></td>
+                <td ><a  class="href2" th:text="${user.custname}" th:href="@{/custEdit(id=${user.id})}"></a></td>
+                <td th:text="${user.contact}"></td>
+                <td th:text="${user.address}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.qq}"></td>
+                <td th:text="${user.createtime}"></td>
+                <!--<td>
+                    <a  th:href="@{/userInfo/userDelId(id=${user.uid})}" >删除</a>
+                    <a  th:href="@{/userInfo/userEdit(id=${user.uid})}" >修改</a>
+                </td>-->
+            </tr>
+            </thead>
+        </table>
+    </div>
+<!--    <div id="divB">
+        总页数：<input type="text" th:value="${totalPages}" style="height: 12px;width: 15px" readonly="true" id="totalPages"/>
+        总条目：<input type="text" th:value="${totalElements}" style="height: 12px;width: 15px" readonly="true"/>
+        当前页数：<input type="text" th:value="${currentPages}+1" style="height: 12px;width: 15px" readonly="true" id="currentPage"/>
+        <a  th:href="@{/userInfo/pageSkip(pageId=${currentPages}-1)}"  id="prePage1"  onclick="prePage()">上一页</a>
+        <a   th:href="@{/userInfo/pageSkip(pageId=${currentPages}+1)}" id="nextPage1" onclick="nextPage()">下一页</a>
+    </div>-->
+</div>
+</body>
+</html>

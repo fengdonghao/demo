@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+    *{
+        margin:10px;
+    }
+    .msg-top{
+        border-top: 1px black dashed;
+        width: 900px;
+        height:auto;
+    }
+    .span-title{
+        font-size: 15px;
+        color: lightseagreen;
+    }
+    .span-msg{
+        font-size: 20px;
+    }
+
+</style>
+<body>
+<div>
+    <div>
+        <p style="color: lightseagreen;font-size: 20px;font-family: 华文仿宋;font-weight: bold">有什么话要对本博主说呢？</p>
+        <form action="/blog/msgP" method="post" id="one">
+            <textarea form="one" style="width: 900px;height: 100px;" name="msg" placeholder="请在此处留言，不得超过100字"></textarea>
+            <input type="submit" value="提交"/>
+        </form>
+    </div>
+    <div>
+        <p  th:each="list:${list}">
+            <div class="msg-top">
+                <br/>
+                <span class="span-title">姓名:</span>
+                <span class="span-title" th:text="${list.username}"></span>
+                <span class="span-title" th:text="${list.time}"></span>
+                <p class="span-msg" th:text="${list.msg}"></p>
+            </div>
+
+        </p>
+
+
+    </div>
+</div>
+</body>
+</html>

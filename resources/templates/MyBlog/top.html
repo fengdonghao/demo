@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+
+
+    body{
+        background: url("/blog/bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .one{
+        height: 90px;
+        width: 120px;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 50%;
+        margin-left: -60px;
+
+    }
+    .two{
+        border-radius: 50%;
+    }
+    span{
+        font-style: oblique;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: Meiryo ;
+    }
+    #show,#hide{
+        float: right;
+        width: 90px;
+        height: 30px;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+        text-align: left;
+        font-family: 仿宋;
+    }
+    a:hover{
+        color: #FF1177;
+    }
+</style>
+<!--
+<script type="text/javascript">
+    //<![CDATA[
+    function getCookie(c_name) {
+        alert(document.cookie.valueOf());
+        alert(document.cookie.length);
+        if (document.cookie.length>0)
+        {
+            var c_start=document.cookie.indexOf(c_name + "=");
+            alert(c_start);
+            if (c_start!=-1){
+                c_start=c_start + c_name.length+1;
+                c_end=document.cookie.indexOf(";",c_start);
+                alert(c_end);
+                if (c_end==-1) {
+                    c_end=document.cookie.length;
+                    alert(c_end);
+                }
+                return unescape(document.cookie.substring(c_start,c_end));
+            }
+        }
+        return "";
+    }
+
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date()
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+
+            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    }
+
+    function checkCookie()
+    {
+        var username=getCookie('vissun');
+        if (username!=null&&username!="") {
+            alert('Welcome again '+username+'!')
+        } else
+        {
+            alert("getCookie fail");
+
+        }
+    }
+    //]]>
+</script>
+-->
+<body >
+<div class="one">
+    <img  class="two" src="/blog/east1.jpg" width="90px " height="90px" />
+    <span>East的Blog</span>
+</div>
+<!--
+<div id="show" style="display: block">
+    <a href="/blog/getLogin" target="_top">登录</a>
+    <a href="/blog/register" target="_blank">注册</a>
+</div>
+<div id="hide" style="display: none">
+    <input id="phoneNumber" type="text" th:value="${phoneNumber}"/>
+</div>
+-->
+
+
+</body>
+</html>

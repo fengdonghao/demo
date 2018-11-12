@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>注册</title>
+</head>
+<style type="text/css">
+    *{
+        margin:0px;
+        padding:0px;
+        border:none;
+    }
+    .demo{
+        /*position: relative;*/
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+
+    }
+    .one{
+        background: url("/blog/bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        padding: 0px;
+        /*overflow: hidden;*/
+        margin: 0px;
+        height: 150px;
+        width: 100%;
+    }
+    .new{
+        position: absolute;
+        /*overflow: hidden;*/
+        margin: 0px;
+        top: 150px;
+        height: 89%;
+        width:100%;
+        /*overflow: scroll;*/
+
+        /*background-color: #666666;*/
+    }
+
+    #top{
+        width: 100%;
+        height: 100%;
+    }
+    .two{
+        border-radius: 50%;
+    }
+
+    .three{
+        height: 90px;
+        width: 120px;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 50%;
+        margin-left: -60px;
+
+    }
+    .body-mid-form{
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        right: 50%;
+        margin-right: -300px;
+    }
+    form{
+        text-align: center;
+        margin-top: 50px;
+    }
+    #phoneNumber,#validateNum,#password,#submit,#click{
+        height: 50px;
+        font-size: 30px;
+        width: 290px;
+        border: 1px gainsboro solid;
+        text-align: center;
+        margin: 10px;
+        color: lightseagreen;
+
+    }
+    span{
+        font-style: oblique;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: Meiryo ;
+    }
+</style>
+<script type="text/javascript">
+    var validateNum;
+    function validateButton() {
+        if (validateNum!=null){
+                if (document.getElementById("validateNum").value==validateNum){
+                    var c=document.getElementById('submit');
+                    c.type='submit';
+                }else {
+                    alert("请输入正确的验证码！");
+                }
+            }
+    }
+    function success(text) {
+        if (text=="error"){
+            alert("该手机号码已注册过！")
+        }else{
+            validateNum=text;
+            limit();
+        }
+
+    }
+    function fail(code) {
+        var input = document.getElementById('test-response-text');
+        // input.value = 'Error code: ' + code;
+        alert("error: "+code);
+    }
+    function startRequst1(){
+        var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象
+        request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+            if (request.readyState === 4) { // 成功完成
+                // 判断响应结果:
+                if (request.status === 200) {
+                    // 成功，通过responseText拿到响应的文本:
+                    // alert(request.responseText);
+                    return success(request.responseText);
+                } else {
+                    // 失败，根据响应码判断失败原因:
+                    return fail(request.status);
+                }
+            } else {
+                // HTTP请求还在继续...
+            }
+        };
+        // 发送请求:
+        var phoneNumber=document.getElementById("phoneNumber").value;
+         request.open('POST', '/blog/sendValidateMsg',true);
+        request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        // request.send(JSON.stringify({ "phoneNumber": phoneNumber, "Name": "15927519596" })); //传递多个参数
+        request.send(phoneNumber);//传递单个参数
+    }
+
+    var wait = 60;
+    function time(btn) {
+        if(wait == 0) {
+            btn.removeAttribute("disabled");
+            btn.value = "免费获取验证码";
+            wait = 60;
+        } else {
+            btn.setAttribute("disabled", true);
+            btn.value = "重新发送(" + wait + ")";
+            wait--;
+            setTimeout(function() {
+                    time(btn)
+                },
+                1000)
+        }
+    }
+    function limit() {
+        time(document.getElementById("click"));
+    }
+</script>
+<body>
+<div class="demo">
+    <div class="one" >
+        <div class="three">
+            <img  class="two" src="/blog/east1.jpg" width="90px" height="90px" />
+            <span>East的Blog</span>
+        </div>
+
+    </div>
+
+    <div class="new">
+        <div class="body-mid-form">
+            <form action="/blog/register1" method="post">
+                <input type="text"   placeholder="请输入手机号码" id="phoneNumber" name="phoneNumber"/>
+                <br/>
+                <input type="button" value="点击获取验证码" id="click" onclick="startRequst1();"/>
+                <br/>
+                <input type="text" placeholder="请出入验证码" id="validateNum"/>
+                <br/>
+                <input type="password" placeholder="请输入密码" id="password" name="password"/>
+                <br/>
+                <input type="button" value="注册" id="submit" onclick="validateButton()"/>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

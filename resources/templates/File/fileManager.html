@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+    .one{
+        border: none;
+    }
+    .two{
+        border: none;
+        background-color: white;
+    }
+    .index1{
+        width: 50px;
+    }
+    .index2{
+        width: 600px;
+    }
+    .index3{
+        width: 80px;
+    }
+    .href2{
+        text-underline: none;
+    }
+
+</style>
+<body>
+    <div>
+        <form action="/uploadFile " method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="upload" value="选择文件" class="two"/>
+            <input type="submit" value="上传文件" class="one"/>
+        </form>
+    </div>
+    <table border="0px">
+        <thead>
+        <tr>
+            <th class="index1">ID</th>
+            <th class="index2">文件名</th>
+            <th class="index3">操作</th>
+
+        </tr>
+        <tr  class="text" th:each="file:${fileList}">
+            <td  th:text="${file.id}"></td>
+            <td th:text="${file.fileName}"></td>
+            <td ><a  class="href2"  th:href="@{/deleteFile(fileName=${file.fileName})}">删除</a>
+                <a  class="href2"  th:href="@{/downloadFile(fileName=${file.fileName})}">下载</a>
+            </td>
+
+
+        </tr>
+        </thead>
+    </table>
+    <div>
+
+    </div>
+
+</body>
+</html>

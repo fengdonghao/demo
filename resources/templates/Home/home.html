@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>CRM管理系统</title>
+</head>
+<style type="text/css">
+    *{
+        margin:0px;
+        padding:0px;
+        border:none;
+    }
+    .demo{
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    .one{
+        padding: 0px;
+        overflow: hidden;
+        margin: 0px;
+        height: 5%;
+        width: 100%;
+        background-color: #03a9f4;
+    }
+    .new{
+        overflow: hidden;
+        margin: 0px;
+        height: 90%;
+        width:100%;
+    }
+    .four{
+        overflow: hidden;
+        margin: 0px;
+        height: 5%;
+        width: 100%;
+    }
+    .two{
+
+        height:100%;
+        width: 10%;
+        float: left;
+        border: none;
+    }
+    .three{
+
+        height:100%;
+        width: 90%;
+        float: right;
+        border: none;
+    }
+    #top{
+        width: 100%;
+        height: 100%;
+    }
+    #left{
+        width: 100%;
+        height: 100%;
+    }
+    #right{
+        width: 100%;
+        height: 100%;
+    }
+    .four{
+        text-align: center;
+    }
+
+
+</style>
+<body>
+<div class="demo">
+    <div class="one" >
+        <iframe id="top" src="/top"  scrolling="no" name="top"></iframe>
+    </div>
+
+    <div class="new">
+
+        <div class="two" >
+            <iframe id="right" src="/list"  scrolling="no" name="list"></iframe>
+        </div>
+        <div class="three" >
+            <iframe  id="left" src="/main"  scrolling="no" name="main"></iframe>
+        </div>
+
+    </div>
+
+    <div class="four">
+        <span>copyright@2017-2018</span>
+    </div>
+</div>
+</body>
+</html>

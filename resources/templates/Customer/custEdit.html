@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+    input{
+        width: 400px;
+        height: 25px;
+    }
+    *{
+        padding: 3px;
+    }
+    p{
+        text-align: center;
+    }
+    .one{
+        height: 30px;
+        float: right;
+    }
+
+</style>
+<script type="text/javascript">
+    function click1() {
+        alert("111");
+    }
+
+</script>
+<body>
+<div class="one">
+    <span><a th:href="@{/custDel(id=${customer.id})}">删除</a></span>
+    <select>
+        <option >Volvo</option>
+        <option >Saab</option>
+        <option >Opel</option>
+        <option >Audi</option>
+    </select>
+    <span><a th:href="@{/custTrans1(id=${customer.id})}">转移</a></span>
+
+</div>
+
+<div>
+    <form action="/custSave" method="post">
+            <p>ID:      <input type="text" th:value="${customer.id}" readonly="true" name="id"/> </p>
+            <p>地址：<input type="text" th:value="${customer.address}" name="address"/></p>
+         <p>负责人ID：<input type="text" th:value="${customer.userId}" readonly="true" name="userId"/></p>
+        <p>接口人：<input type="text" th:value="${customer.contact}" name="contact" readonly="true"/></p>
+            <p>添加时间：<input type="text" th:value="${customer.createtime}" name="createtime"/></p>
+            <p>客户名：<input type="text" th:value="${customer.custname}" name="custname"/></p>
+            <p>邮箱：<input type="text" th:value="${customer.email}" name="email"/></p>
+            <p>备注：<input type="text" th:value="${customer.mark}" name="mark"/></p>
+            <p>进展：<input type="text" th:value="${customer.progress}" name="progress"/></p>
+            <p>最新进展的时间：<input type="text" th:value="${customer.progresstime}" name="progresstime"/></p>
+            <p>QQ：<input type="text" th:value="${customer.qq}" name="qq"/></p>
+            <p>联系电话：<input type="text" th:value="${customer.tel}" name="tel"/></p>
+            <p>微信：<input type="text" th:value="${customer.wechar}" name="wechar"/></p>
+            <p><input type="submit" value="保存"/></p>
+
+
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>East的博客</title>
+    <script src="/blog/js/jquery-3.3.1.min.js"></script>
+    <script src="/blog/js/test1.js"></script>
+</head>
+<style type="text/css">
+    *{
+        margin:0px;
+        padding:0px;
+        border:none;
+    }
+    .demo{
+        /*position: relative;*/
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+
+    }
+    .one{
+        position: absolute;
+        padding: 0px;
+        /*overflow: hidden;*/
+        margin: 0px;
+        height: 150px;
+        width: 100%;
+    }
+    .new{
+        position: absolute;
+        /*overflow: hidden;*/
+        margin: 0px;
+        top: 200px;
+        height: 89%;
+        width:100%;
+        /*overflow: scroll;*/
+
+        /*background-color: #666666;*/
+    }
+    .four{
+        /*overflow: hidden;*/
+        margin: 0px;
+        height: 5%;
+        width: 100%;
+    }
+    .two{
+
+        height:100%;
+        width: 10%;
+        float: left;
+        border: none;
+    }
+    .three{
+        border: none;
+        height:100%;
+        width: 90%;
+        float: right;
+    }
+    #top{
+        width: 100%;
+        height: 100%;
+    }
+    #left{
+        width: 100%;
+        height: 100%;
+    }
+    #right{
+        width: 100%;
+        height: 100%;
+        /*overflow: scroll;*/
+    }
+    .four{
+        position: absolute;
+        text-align: center;
+        height: 5%;
+        width: 100%;
+        top: 95%;
+
+    }
+
+.top-body{
+    background-color: white;
+    /*position: fixed;*/
+    top: 0px;
+    height:50px;
+    width: 100%;
+    z-index:9999999999;
+    opacity: 0.9;
+}
+
+    #show{
+        float: right;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+
+        margin-top: 12px;
+    }
+    #hide{
+
+        float: right;
+        width: 200px;
+        height: 30px;
+        text-align: center;
+
+        margin-top: 12px;
+    }
+
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: lightseagreen;
+        font-weight: bold;
+        text-align: center;
+        font-family: 仿宋;
+    }
+    a:hover{
+        color: #FF1177;
+    }
+    .two{
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+    .logo{
+        float: left;
+        height: 50px;
+        width: 50px;
+    }
+    .east{
+        float: left;
+        height: 50px;
+        width: 60px;
+    }
+    .east-span{
+        font-size: 20px;
+        font-family: 仿宋;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 12px;
+        color: lightseagreen;
+    }
+    .top-num{
+        float: right;
+
+        height: 50px;
+        width: 100px;
+    }
+    .top-logout{
+        float: right;
+        height: 50px;
+        width: 50px;
+    }
+    #phoneNumber{
+        width: 100px;
+    }
+
+
+</style>
+<body>
+<div class="top-body">
+    <div class="logo">
+        <img  class="two" src="/blog/east1.jpg" />
+    </div>
+    <div class="east">
+        <div class="east-span">
+            <span >East</span>
+        </div>
+    </div>
+    <div id="show" style="display: block">
+        <a href="/blog/login" target="_top">登录</a>
+        <a href="/blog/register" target="_blank">注册</a>
+    </div>
+    <div id="hide" style="display: none">
+        <div class="top-logout">
+            <a href="/blog/logout">注销</a>
+        </div>
+        <div class="top-num">
+            <input id="phoneNumber" type="text" th:value="${phoneNumber}" readonly="true"/>
+        </div>
+
+    </div>
+</div>
+<div class="demo">
+    <div class="one" >
+        <iframe id="top" src="/blog/top"  scrolling="no" name="top"></iframe>
+    </div>
+
+    <div class="new">
+        <iframe id="right" src="/blog/mid"  scrolling="no" name="list"></iframe>
+    </div>
+
+    <!--<div class="four">-->
+        <!--<span>copyright@2017-2018</span>-->
+    <!--</div>-->
+</div>
+</body>
+
+</html>

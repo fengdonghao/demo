@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8"/>
+    <title>登录</title>
+</head>
+<style type="text/css">
+    .body{
+        height: 300px;
+        width: 400px;
+        border-bottom: antiquewhite;
+        -webkit-box-shadow: #666 0px 0px 10px;
+        -moz-box-shadow: #666 0px 0px 10px;
+        box-shadow: #666 0px 0px 10px;
+        position:fixed ;
+        margin-top: 10%;
+        margin-left: 50%;
+        left: -200px;
+    }
+
+    .top{
+        position: absolute;
+        width: 100%;
+        height: 15%;
+    }
+    .bottom{
+        position: absolute;
+        margin-top: 15%;
+        height: 80%;
+        width: 100%;
+    }
+    .form-group{
+        padding: 15px;
+        width: 100%;
+        height: 50px;
+        position: center;
+        margin: 5px;
+    }
+    .form-control{
+        border: 0px;
+        font-size: 20px;
+        text-shadow: #666666;
+        width: 90%;
+        height: 40px;
+    }
+    .panel-title{
+        color: black;
+        font-size: 20px;
+        margin-top: 8px;
+        margin-left: 10px;
+        position: fixed;
+        font-weight: bold;
+        font-family: 华文仿宋;
+
+    }
+    .loginButton{
+        color: #03a9f4;
+        font-size: 20px;
+        border: none;
+        background: white;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        onmouseover: grey;
+        border: 1px gainsboro solid;
+
+
+    }
+    .form-submit-button{
+        width: 100%;
+        height: 50px;
+    }
+</style>
+<script type="text/javascript">
+
+</script>
+<body>
+<div class="body">
+
+    <div class="top" style="background: #9FA8DA">
+        <span class="panel-title">East's blog 登录</span>
+    </div>
+    <div class="bottom">
+            <p th:text="${error}" id="hide"></p>
+        <form action="/blog/login" method="post">
+            <div>
+                <span th:text="${msg}"></span>
+            </div>
+            <div class="form-group">
+                <input class="form-control"  placeholder="账号" name="phoneNumber" type="text" id="phoneNumber" autofocus="autofocus"  required="required"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="密码" name="password" type="password" id="password" required="required"/>
+            </div>
+            <div class="form-submit-button">
+                <button class="loginButton"  type="submit" id="submitB" >进入系统</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+</div>
+</body>
+</html>

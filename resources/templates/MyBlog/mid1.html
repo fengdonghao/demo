@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+
+
+    *{
+        padding:0px;
+        border:none;
+    }
+
+
+    .mid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+    }
+    .five{
+        position: absolute;
+        height: 100%;
+        width: 1400px;
+        left: 50%;
+        margin-left: -700px;
+        overflow: hidden;
+
+    }
+    .two{
+        text-align: center;
+
+        height:100%;
+        width: 200px;
+        float: left;
+        border: none;
+        margin: 10px;
+        -webkit-box-shadow: #666 0px 0px 10px;
+        -moz-box-shadow: #666 0px 0px 10px;
+        box-shadow: #666 0px 0px 10px;
+    }
+    .three{
+        -webkit-box-shadow: #666 0px 0px 10px;
+        -moz-box-shadow: #666 0px 0px 10px;
+        box-shadow: #666 0px 0px 10px;
+        /*background-color: grey;*/
+        border: none;
+        height: 1500px;
+        width: 1155px;
+        float: left;
+        margin: 10px;
+        overflow: hidden;
+    }
+    a,span{
+        font-size: 20px;
+        font-family: 仿宋;
+        font-weight: bold;
+        line-height: 50px;
+
+    }
+    input{
+        width: 50px;
+        border: none;
+        background-color: white;
+        text-align: center;
+        font-size: 20px;
+
+    }
+    #left{
+        position: absolute;
+        height: 98%;
+        width: 1185px;
+        /*overflow: scroll;*/
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .mid-left-info{
+        border-bottom: 1px  #FF1177 solid;
+
+    }
+    a{
+        text-decoration: none;
+        color: lightseagreen;
+    }
+    a:hover{
+        color: #FF1177;
+    }
+    span{
+        color: lightseagreen;
+    }
+</style>
+<body style="overflow-y: hidden ">
+<div class="five">
+        <div class="two">
+            <div class="mid-left-info">
+                <span>博文</span><input type="text" th:value="${articleCount}" readonly="true" style="color:lightseagreen;"/>
+                <br/>
+                <span >访问人数</span>
+                <input type="text" value="123" readonly="true" style="color:lightseagreen;"/>
+            </div>
+
+            <div>
+                <a  href="/blog/main" target="main">主页</a>
+                <br/>
+                <a href="/blog/blog" target="main">博文</a>
+                <br/>
+                <a href="/blog/msg" target="main">留言</a>
+                <br/>
+                <a href="/blog/aboutMe" target="main">关于我</a>
+            </div>
+
+        </div>
+
+        <div class="three">
+            <iframe  id="left" th:src="@{'/blog/getBlog/'+${id}}"   name="main"></iframe>
+        </div>
+
+</div>
+
+</body>
+</html>

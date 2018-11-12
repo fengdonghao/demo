@@ -1,0 +1,35 @@
+spring:
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://111.230.12.133:3306/txcloud
+      username: root
+      password: 121121
+    mvc:
+        view:
+          prefix: /template/
+          suffix: .html
+    thymeleaf:
+      cache: false
+      content-type: text/html
+      charset:
+      encoding: UTF-8
+      mode: HTML5
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+    http:
+      multipart:
+        max-request-size: 1Mb
+        enabled: true
+        max-file-size: 1Mb
+server:
+  port: 8888
+  session:
+    cookie:
+      name: vissun
+  tomcat:
+    max-http-post-size: 5020
+
+resource:
+  path: /root/fengdonghao/data/resources/static/

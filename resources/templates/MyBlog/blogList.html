@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+    p{
+        margin: 10px;
+        /*width:10em;!*保证文字不会被半汉字截断,显示10个文字*!*/
+        overflow:hidden;/*超出长度的文字隐藏*/
+        text-overflow:ellipsis;/*文字隐藏以后添加省略号*/
+        /*white-space: nowrap;!*强制不换行*!*/
+        max-width: 1000px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    .td1{
+        font-weight: bold;
+        font-size: 30px;
+
+    }
+    a{
+        text-decoration: none;
+        color: lightseagreen;
+
+    }
+    a:hover{
+        color: #FF1177;
+    }
+    span{
+        margin: 10px;
+        color: lightseagreen;
+    }
+
+    .one{
+        margin: 10px;
+    }
+    .two{
+        border-top: 1px salmon solid;
+    }
+</style>
+<body>
+<div class="one">
+
+        <p class="two" th:each="list:${list}">
+            <a class="td1" th:href="@{'/blog/getBlog/'+${list.id}}" target="main" >
+                <p  th:text="${list.title}"></p>
+            </a>
+            <p class="td2" th:text="${list.content}"></p>
+            <span>作者:</span><span th:text="${list.author}"></span><span>时间:</span><span th:text="${list.time}"></span>
+
+        </p>
+
+
+
+
+</div>
+</body>
+</html>

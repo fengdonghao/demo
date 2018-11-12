@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style type="text/css">
+    .one{
+        float: left;
+    }
+    .two{
+        float: right;
+
+    }
+    .three{
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
+</style>
+<body>
+<div class="one">
+    <a class="three" href="/home" target="_top">CRM管理系统</a>
+</div>
+<div class="two">
+    <a  class="three" href="/userInfo" target="main"><span th:text="${username}"></span>的个人资料      </a>
+
+    <a class="three" href="/logout" target="_top">退  出</a>
+</div>
+</body>
+</html>
